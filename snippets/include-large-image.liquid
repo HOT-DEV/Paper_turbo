@@ -1,0 +1,11 @@
+{% if type =='block' %}
+{% assign image = block.settings.image %}
+{% endif %}
+
+<div class="large-image-section">
+    <div class="container">
+        <div class="image-container">
+                {% include 'image-element', image: image, alt: image.alt %}
+        </div>
+    </div>
+</div>

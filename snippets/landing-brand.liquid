@@ -1,0 +1,33 @@
+<div class="brand">
+  <div class="brand-section container">
+    <h2 class="title">
+        {{ block.settings.title }}
+      </h2>
+    <div class="top-brand">
+      
+      {% for i in (1..15) %}
+      {% capture image_id %}image{{ i }}{% endcapture %}
+      {% assign image = block.settings[image_id] %}
+      {% if image != blank %}
+      <div class="image-wrapper">
+        {% include 'image-element', image: image, alt: block.settings.image.alt,  stretch_width: true %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <h2 class="title">
+        {{ block.settings.title2 }}
+      </h2>
+    <div class="bottom-brand">
+      {% for i in (16..26) %}
+      {% capture image_id %}image{{ i }}{% endcapture %}
+      {% assign image = block.settings[image_id] %}
+      {% if image != blank %}
+      <div class="image-wrapper">
+        {% include 'image-element', image: image, alt: block.settings.image.alt,  stretch_width: true %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

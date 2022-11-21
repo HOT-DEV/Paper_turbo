@@ -1,0 +1,1172 @@
+{% if page.handle == section.settings.page %}
+{% for block in section.blocks %}
+{% if block.type == "hero" %}
+{% include 'landing-image-with-text-overlay' %}
+{% endif %}
+{% if block.type == "testimonials" %}
+{% include 'landing-two-column-images' %}
+{% endif %}
+{% if block.type == "custom" %}
+{% include 'landing-custom-table' %}
+{% endif %}
+{% if block.type == "product" %}
+{% include 'landing-product' %}
+{% endif %}
+{% if block.type == "brand" %}
+{% include 'landing-brand' %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Landing page 5",
+    "settings": [
+      {
+        "type": "page",
+        "id": "page",
+        "label": "Select Page"
+      }
+	],
+	"blocks": [
+      {
+        "type": "hero",
+        "name": "Hero",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "wide_display",
+            "label": "Wide display",
+            "default": true
+          },
+          {
+            "type": "select",
+            "id": "collapse_type",
+            "label": "Collapse Style",
+            "options": [
+              {
+                "value": "collapse",
+                "label": "Collapse"
+              },
+              {
+                "value": "overlay",
+                "label": "Overlay"
+              }
+            ]
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Background Image - Desktop/Tablet",
+            "info": "1800 x 1000px recommended"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Background Image - Mobile"
+          },
+          {
+            "type": "richtext",
+            "id": "pretext",
+            "label": "Preheading"
+          },
+          {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading Size",
+            "options": [
+              {
+                "value": "normal",
+                "label": "Normal"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Text"
+          },
+          {
+            "type": "checkbox",
+            "id": "caption_background",
+            "label": "Display solid text background",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "caption_background_transparency",
+            "label": "Enable background transparency"
+          },
+          {
+            "type": "select",
+            "id": "subtitle_size",
+            "label": "Subtitle Size",
+            "options": [
+              {
+                "value": "small",
+                "label": "Small"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "subtitle_weight",
+            "label": "Subtitle Weight",
+            "options": [
+              {
+                "value": "normal",
+                "label": "normal"
+              },
+              {
+                "value": "bold",
+                "label": "bold"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "wide_content",
+            "label": "Caption Width",
+            "options": [
+              {
+                "value": "normal",
+                "label": "Normal"
+              },
+              {
+                "value": "wide",
+                "label": "Wide"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_position",
+            "label": "Box position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button1",
+            "label": "First button label"
+          },
+          {
+            "type": "url",
+            "id": "button1_link",
+            "label": "First button link"
+          }
+        ]
+      },
+	  {
+        "type": "brand",
+        "name": "Logo",
+        "settings": [
+		  {
+             "type": "header",
+             "content": "Logo Group #1"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Logo 1"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Logo 2"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "Logo 3"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image4",
+            "label": "Logo 4"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image5",
+            "label": "Logo 5"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image6",
+            "label": "Logo 6"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image7",
+            "label": "Logo 7"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image8",
+            "label": "Logo 8"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image9",
+            "label": "Logo 9"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image10",
+            "label": "Logo 10"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image11",
+            "label": "Logo 11"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image12",
+            "label": "Logo 12"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image13",
+            "label": "Logo 13"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image14",
+            "label": "Logo 14"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image15",
+            "label": "Logo 15"
+          },
+		  {
+             "type": "header",
+             "content": "Logo Group #2"
+          },
+		  {
+            "type": "text",
+            "id": "title2",
+            "label": "Title",
+			"default":"Award Winning Packaging Featured On:"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image16",
+            "label": "Logo 1"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image17",
+            "label": "Logo 2"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image18",
+            "label": "Logo 3"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image19",
+            "label": "Logo 4"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image20",
+            "label": "Logo 5"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image21",
+            "label": "Logo 6"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image22",
+            "label": "Logo 7"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image23",
+            "label": "Logo 8"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image24",
+            "label": "Logo 9"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image25",
+            "label": "Logo 10"
+          }
+        ]
+      },
+	 
+	   {
+        "type": "custom",
+        "name": "Table",
+        "settings": [
+		  {
+             "type": "header",
+             "content": "Tube infomation"
+          },
+		  {
+            "type": "text",
+            "id": "info_title",
+            "label": "title"
+          },
+		  {
+            "type": "text",
+            "id": "info_subtitle",
+            "label": "Subtitle"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image 1"
+          },
+		  {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image 2"
+          },
+		  {
+             "type": "header",
+             "content": "Table"
+          },
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Custom tube title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Custom tube subtitle"
+          },
+		  {
+            "type": "text",
+            "id": "title1",
+            "label": "Ready tube title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle1",
+            "label": "Ready tube subtitle"
+          },
+          {
+             "type": "header",
+             "content": "Row 1"
+          },
+		  {
+            "type": "text",
+            "id": "heading1",
+            "label": "Column heading"
+          },
+		  {
+            "type": "text",
+            "id": "heading_sub1",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title1_1",
+            "label": "Column 1 title"
+          },
+		  {
+            "type": "textarea",
+            "id": "c_subtitle1_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+		  {
+            "type": "text",
+            "id": "c_title1_2",
+            "label": "Column 2 title"
+          },
+		  {
+            "type": "textarea",
+            "id": "c_subtitle1_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+
+          {
+             "type": "header",
+             "content": "Row 2"
+          },
+		  {
+            "type": "text",
+            "id": "heading2",
+            "label": "Column heading"
+          },
+		  {
+            "type": "text",
+            "id": "heading_sub2",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title2_1",
+            "label": "Column 1 title"
+          },
+		  {
+            "type": "textarea",
+            "id": "c_subtitle2_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+		  {
+            "type": "text",
+            "id": "c_title2_2",
+            "label": "Column 2 title"
+          },
+		  {
+            "type": "textarea",
+            "id": "c_subtitle2_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+
+		  {
+             "type": "header",
+             "content": "Row 3"
+          },
+		  {
+            "type": "text",
+            "id": "heading3",
+            "label": "Column heading"
+          },
+		  {
+            "type": "text",
+            "id": "heading_sub3",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title3_1",
+            "label": "Column 1 title"
+          },
+		  {
+            "type": "textarea",
+            "id": "c_subtitle3_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+		  {
+            "type": "text",
+            "id": "c_title3_2",
+            "label": "Column 2 title"
+          },
+		  {
+            "type": "textarea",
+            "id": "c_subtitle3_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+		  
+		  {
+             "type": "header",
+             "content": "Row 4"
+          },
+      	  {
+            "type": "text",
+            "id": "heading4",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub4",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title4_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle4_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title4_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle4_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+		  
+          {
+             "type": "header",
+             "content": "Row 5"
+          },
+          {
+            "type": "text",
+            "id": "heading5",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub5",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title5_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle5_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title5_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle5_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+    {
+             "type": "header",
+             "content": "Row 6"
+          },
+          {
+            "type": "text",
+            "id": "heading6",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub6",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title6_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle6_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title6_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle6_2",
+            "label": "Column 2 subtitle/Svg"
+          },	
+
+    {
+             "type": "header",
+             "content": "Row 7"
+          },
+          {
+            "type": "text",
+            "id": "heading7",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub7",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title7_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle7_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title7_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle7_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+
+    {
+             "type": "header",
+             "content": "Row 8"
+          },
+          {
+            "type": "text",
+            "id": "heading8",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub8",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title8_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle8_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title8_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle8_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+
+    {
+             "type": "header",
+             "content": "Row 9"
+          },
+          {
+            "type": "text",
+            "id": "heading9",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub9",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title9_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle9_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title9_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle9_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+
+    {
+             "type": "header",
+             "content": "Row 10"
+          },
+          {
+            "type": "text",
+            "id": "heading10",
+            "label": "Column heading"
+          },
+          {
+            "type": "text",
+            "id": "heading_sub10",
+            "label": "Column subheading"
+          },
+          {
+            "type": "text",
+            "id": "c_title10_1",
+            "label": "Column 1 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle10_1",
+            "label": "Column 1 subtitle/Svg"
+          },
+          {
+            "type": "text",
+            "id": "c_title10_2",
+            "label": "Column 2 title"
+          },
+          {
+            "type": "textarea",
+            "id": "c_subtitle10_2",
+            "label": "Column 2 subtitle/Svg"
+          },
+
+
+		  {
+             "type": "header",
+             "content": "Last row title with buttons"
+          },
+		  {
+            "type": "text",
+            "id": "title_row_1",
+            "label": "Custom tube title "
+          },
+		  {
+            "type": "text",
+            "id": "title_row_text1",
+            "label": "Custom tube Button text"
+          },
+		  {
+            "type": "url",
+            "id": "title_row_link1",
+            "label": "Custom tube Button link"
+          },
+          
+          {
+            "type": "text",
+            "id": "title_row_2",
+            "label": "Custom tube title "
+          },
+          {
+            "type": "text",
+            "id": "title_row_text2",
+            "label": "Custom tube Button text"
+          },
+		  {
+            "type": "url",
+            "id": "title_row_link2",
+            "label": "Custom tube Button link"
+          }
+        ]
+      },
+	  {
+        "type": "product",
+        "name": "Products",
+        "settings": [
+		   {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "product",
+            "id": "product_1",
+            "label": "Product 1"
+          },
+		  {
+            "type": "text",
+            "id": "product_name_1",
+            "label": "Product name 1 (Optional)"
+          },
+		  {
+            "type": "product",
+            "id": "product_2",
+            "label": "Product 2"
+          },
+		  {
+            "type": "text",
+            "id": "product_name_2",
+            "label": "Product name 2 (Optional)"
+          },
+		  {
+            "type": "product",
+            "id": "product_3",
+            "label": "Product 3"
+          },
+		  {
+            "type": "text",
+            "id": "product_name_3",
+            "label": "Product name 3 (Optional)"
+          },
+		  {
+            "type": "product",
+            "id": "product_4",
+            "label": "Product 4"
+          },
+		  {
+            "type": "text",
+            "id": "product_name_4",
+            "label": "Product name 4 (Optional)"
+          },
+		  {
+            "type": "product",
+            "id": "product_5",
+            "label": "Product 5"
+          },
+		  {
+            "type": "text",
+            "id": "product_name_5",
+            "label": "Product name 5 (Optional)"
+          },
+		  {
+            "type": "product",
+            "id": "product_6",
+            "label": "Product 6"
+          },
+		  {
+            "type": "text",
+            "id": "product_name_6",
+            "label": "Product name 6 (Optional)"
+          }
+        ]
+      },
+	  {
+        "type": "testimonials",
+        "name": "Portfolio / Testimonials",
+        "settings": [
+		  {
+             "type": "header",
+             "content": "Portfolio / Testimonials 1"
+          },
+		  {
+            "type": "image_picker",
+            "id": "overlay_image",
+            "label": "Overlay image",
+            "info": "840 x 840px recommended"
+          },
+		  {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading Size",
+            "options": [
+              {
+                "value": "normal",
+                "label": "Normal"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Text"
+          },
+		  {
+            "type": "text",
+            "id": "review_title",
+            "label": "Review title"
+          },
+		  {
+            "type": "range",
+            "id": "star",
+            "label": "Number of star",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default": 5
+          },	
+		  {
+            "type": "richtext",
+            "id": "review_description",
+            "label": "Review description"
+          },
+		  {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "checkbox",
+            "id": "caption_background",
+            "label": "Display solid text background",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "caption_background_transparency",
+            "label": "Enable background transparency"
+          },
+          {
+            "type": "select",
+            "id": "font_color",
+            "label": "Font Color",
+            "options": [
+              {
+                "value": "dark",
+                "label": "Dark"
+              },
+              {
+                "value": "grey",
+                "label": "Grey"
+              },
+              {
+                "value": "light",
+                "label": "Light"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "subtitle_size",
+            "label": "Subtitle Size",
+            "options": [
+              {
+                "value": "small",
+                "label": "Small"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_position",
+            "label": "Box position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              },
+              {
+                "value": "bottom-center",
+                "label": "Bottom Center"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+		  {
+             "type": "header",
+             "content": "Portfolio / Testimonials 2"
+          },
+		  {
+            "type": "image_picker",
+            "id": "overlay_image1",
+            "label": "Overlay image",
+            "info": "840 x 840px recommended"
+          },
+		  {
+            "type": "select",
+            "id": "heading_size1",
+            "label": "Heading Size",
+            "options": [
+              {
+                "value": "normal",
+                "label": "Normal"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "title1",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "subtitle1",
+            "label": "Text"
+          },
+		  {
+            "type": "text",
+            "id": "review_title1",
+            "label": "Review title"
+          },
+		  {
+            "type": "range",
+            "id": "star1",
+            "label": "Number of star",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default": 5
+          },	
+		  {
+            "type": "richtext",
+            "id": "review_description1",
+            "label": "Review description"
+          },
+		  {
+            "type": "text",
+            "id": "name1",
+            "label": "Name"
+          },
+          {
+            "type": "checkbox",
+            "id": "caption_background1",
+            "label": "Display solid text background",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "caption_background_transparency1",
+            "label": "Enable background transparency"
+          },
+          {
+            "type": "select",
+            "id": "font_color1",
+            "label": "Font Color",
+            "options": [
+              {
+                "value": "dark",
+                "label": "Dark"
+              },
+              {
+                "value": "grey",
+                "label": "Grey"
+              },
+              {
+                "value": "light",
+                "label": "Light"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "subtitle_size1",
+            "label": "Subtitle Size",
+            "options": [
+              {
+                "value": "small",
+                "label": "Small"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_position1",
+            "label": "Box position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              },
+              {
+                "value": "bottom-center",
+                "label": "Bottom Center"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_align1",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          }
+        ]
+      }
+  	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

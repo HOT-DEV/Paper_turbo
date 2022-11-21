@@ -1,0 +1,127 @@
+{% assign show_printing_table = false %}
+{% for variant in product.variants %}
+{% if variant.title contains 'Yes' %}
+{% assign show_printing_table = true %}
+{% endif %}
+{% endfor %}
+{% assign product_qty_option = nil %}
+{% for option in product.options %}
+    {% if option == "Quantity" %}
+        {% assign product_qty_option = forloop.index0 %}
+    {% endif %}
+{% endfor %}
+
+{% if product_qty_option != nil %}
+    <table class="product_price_table">
+        <tbody>
+            <tr class="quantity-row">
+                <td class="cell-label">Qty</td>
+                {% for value in product.options_with_values[product_qty_option].values %}
+                    {% if forloop.last %}
+                        <td>{{value}}+</td>
+                    {% else %}
+                        {% assign next_index = forloop.index0 | plus: 1 %}
+                        {% assign edge_value = product.options_with_values[product_qty_option].values[next_index] | minus: 1 %}
+                        {% if value == edge_value %}
+                            <td>{{value}}</td>
+                        {% else %}
+                            <td>{{value}} - {{edge_value}}</td>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="price-row border-bottom">
+              <td class="cell-label">Per Unit</td>
+              {% for value in product.options_with_values[product_qty_option].values %}
+              {% for variant in product.variants %}
+              {% if product_qty_option == 0 and variant.option1 == value %}
+              <td>{{variant.price | money_with_currency}}</td>
+              {% break %}
+              {% elsif product_qty_option == 1 and variant.option2 == value %}
+              <td>{{variant.price | money_with_currency}}</td>
+              {% break %}
+              {% elsif product_qty_option == 2 and variant.option3 == value %}
+              <td>{{variant.price | money_with_currency}}</td>
+              {% break %}
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+            </tr>
+          {% if show_printing_table %}
+            <tr class="price-row">
+              <td class="cell-label">Screen Printed</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              {% for variant in product.variants %}
+              {% if variant.title contains 'Yes' %}
+              <td>{{variant.price | money_with_currency}}</td>
+              {% endif %}
+              {% endfor %}
+            </tr>
+          {% endif %}
+        </tbody>
+    </table>
+
+<table class="product_price_table mobile_price_table">
+  <tbody>
+    <tr>
+      <td class="cell-label">Qty</td>
+      <td class="cell-label">Per Unit</td>
+      {% if show_printing_table %}
+      <td class="cell-label">Screen Printed</td>
+      {% endif %}
+    </tr>
+	{% assign newCountPlus = 0 %}
+    {% for value in product.options_with_values[product_qty_option].values %}
+    <tr>
+      {% if forloop.last %}
+      <td>{{value}}+</td>
+      {% else %}
+      {% assign next_index = forloop.index0 | plus: 1 %}
+      {% assign edge_value = product.options_with_values[product_qty_option].values[next_index] | minus: 1 %}
+      {% if value == edge_value %}
+      <td>{{value}}</td>
+      {% else %}
+      <td>{{value}} - {{edge_value}}</td>
+      {% endif %}
+      {% endif %}
+	  
+      {% for variant in product.variants %}
+      {% assign forloopIndex = forloop.length %}
+      {% assign  count = forloop.index %}
+      
+      {% if product_qty_option == 0 and variant.option1 == value %}
+        {% assign newCount = count | plus:3 %}
+        <td>{{variant.price | money_with_currency}}</td>
+      {% if show_printing_table %}
+        {% if count < 5 %}
+        <td>-</td>
+        {% else %}
+          {% for variant in product.variants %}
+            {% if variant.title contains 'Yes' %}
+            <td>{{product.variants[newCount].price | money_with_currency}}</td>
+            {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+        {% break %}
+      {% elsif product_qty_option == 1 and variant.option2 == value %}
+      <td>{{variant.price | money_with_currency}}</td>
+      <td>{{ forloop.index }}</td>
+      {% break %}
+      {% elsif product_qty_option == 2 and variant.option3 == value %}
+      <td>{{variant.price | money_with_currency}}</td>
+      <td>{{ forloop.index }}</td>
+      {% break %}
+      {% endif %}
+      {% endfor %}
+      
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}

@@ -1,0 +1,38 @@
+<div class="landing-footer">
+  <div class="connect-icon">
+    <h6 class="title">Connect</h6>
+    <a href="tel:{{ section.settings.mobile }}"> <i class="fas fa-phone"></i> {{ section.settings.mobile }}</a>
+    <a href="mailto:the@papertube.co" target="_blank"> <i class="far fa-envelope"></i> {{ section.settings.mail }}</a>
+  </div>
+  <div class="copy-write">
+    {{ section.settings.copy }}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Landing footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mobile",
+        "label": "Contact number"
+      },
+	  {
+        "type": "text",
+        "id": "mail",
+        "label": "Contact email"
+      },
+	  {
+        "type": "text",
+        "id": "copy",
+        "label": "Copywrite text"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

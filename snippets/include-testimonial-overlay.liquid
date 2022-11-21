@@ -1,0 +1,136 @@
+{% if type == 'block' %}
+  {% assign profile_pic = block.settings.profile_pic %}
+  {% assign collapse_type = block.settings.collapse_type %}
+  {% assign font_color = block.settings.font_color%}
+  {% assign wide_content = block.settings.wide_content %}
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign image = block.settings.image %}
+  {% assign testimonial = block.settings.testimonial %}
+  {% assign profile_byline = block.settings.profile_byline %}
+  {% assign caption_background = block.settings.caption_background %}
+  {% assign caption_background_transparency = block.settings.caption_background_transparency %}
+  {% assign text_position = block.settings.text_position %}
+  {% assign text_align = block.settings.text_align %}
+  {% assign button1 = block.settings.button1 %}
+  {% assign button1_link = block.settings.button1_link %}
+  {% assign button1_highlight = block.settings.button1_highlight %}
+  {% assign button2 = block.settings.button2 %}
+  {% assign button2_link = block.settings.button2_link %}
+  {% assign button2_highlight = block.settings.button2_highlight %}
+{% elsif type == 'only-block' %}
+  {% capture profile_pic_handle %}profile_pic_{{ index }}{% endcapture %}
+  {% capture collapse_type_handle %}collapse_type_{{ index }}{% endcapture %}
+  {% capture font_color_handle %}font_color_{{ index }}{% endcapture %}  {% capture wide_content_handle %}wide_content_{{ index }}{% endcapture %}
+  {% capture id_handle %}id_{{ index }}{% endcapture %}
+  {% capture wide_display_handle %}wide_display_{{ index }}{% endcapture %}
+  {% capture image_handle %}image_{{ index }}{% endcapture %}
+  {% capture testimonial_handle %}testimonial_{{ index }}{% endcapture %}
+  {% capture profile_byline_handle %}profile_byline_{{ index }}{% endcapture %}
+  {% capture caption_background_handle %}caption_background_{{ index }}{% endcapture %}
+  {% capture caption_background_transparency_handle %}caption_background_transparency_{{ index }}{% endcapture %}
+  {% capture text_position_handle %}text_position_{{ index }}{% endcapture %}
+  {% capture text_align_handle %}text_align_{{ index }}{% endcapture %}
+  {% capture button1_handle %}button1_{{ index }}{% endcapture %}
+  {% capture button1_link_handle %}button1_link_{{ index }}{% endcapture %}
+  {% capture button1_highlight_handle %}button1_highlight_{{ index }}{% endcapture %}
+  {% capture button2_handle %}button2_{{ index }}{% endcapture %}
+  {% capture button2_link_handle %}button2_link_{{ index }}{% endcapture %}
+  {% capture button2_highlight_handle %}button2_highlight_{{ index }}{% endcapture %}
+
+  {% assign profile_pic = block.settings[profile_pic_handle] %}
+  {% assign collapse_type = block.settings[collapse_type_handle] %}
+  {% assign font_color = block.settings[font_color_handle] %}
+  {% assign wide_content = block.settings[wide_content_handle] %}
+  {% assign id = block.id[id_handle] %}
+  {% assign wide_display = block.settings[wide_display_handle] %}
+  {% assign image = block.settings[image_handle] %}
+  {% assign testimonial = block.settings[testimonial_handle] %}
+  {% assign profile_byline = block.settings[profile_byline_handle] %}
+  {% assign caption_background = block.settings[caption_background_handle] %}
+  {% assign caption_background_transparency = block.settings[caption_background_transparency_handle] %}
+  {% assign text_position = block.settings[text_position_handle] %}
+  {% assign text_align = block.settings[text_align_handle] %}
+  {% assign button1 = block.settings[button1_handle] %}
+  {% assign button1_link = block.settings[button1_link_handle] %}
+  {% assign button1_highlight = block.settings[button1_highlight_handle] %}
+  {% assign button2 = block.settings[button2_handle] %}
+  {% assign button2_link = block.settings[button2_link_handle] %}
+  {% assign button2_highlight = block.settings[button2_highlight_handle] %}
+{% else %}
+  {% assign profile_pic = section.settings.profile_pic %}
+  {% assign collapse_type = section.settings.collapse_type %}
+  {% assign id = section.id %}
+  {% assign font_color = section.settings.font_color%}
+  {% assign wide_content = section.settings.wide_content %}
+  {% assign wide_display = section.settings.wide_display %}
+  {% assign image = section.settings.image %}
+  {% assign testimonial = section.settings.testimonial %}
+  {% assign profile_byline = section.settings.profile_byline %}
+  {% assign caption_background = section.settings.caption_background %}
+  {% assign caption_background_transparency = section.settings.caption_background_transparency %}
+  {% assign text_position = section.settings.text_position %}
+  {% assign text_align = section.settings.text_align %}
+  {% assign button1 = section.settings.button1 %}
+  {% assign button1_link = section.settings.button1_link %}
+  {% assign button1_highlight = section.settings.button1_highlight %}
+  {% assign button2 = section.settings.button2 %}
+  {% assign button2_link = section.settings.button2_link %}
+  {% assign button2_highlight = section.settings.button2_highlight %}
+{% endif %}
+
+{% if wide_display == false %}
+<div class="container">
+  <div class="sixteen columns">
+{% endif %}
+
+<div id="banner-{{id}}" class="banner full-width--{{ wide_display }} collapse--{{collapse_type}}">
+  {% if image != nil %}
+    {% include 'image-element', image: image, alt: image.alt %}
+  {% else %}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+  {% endif %}
+  {% unless button1_link != blank and button2_link != blank %}
+    {% if button1_link != blank %}
+      <a href="{{ button1_link }}" class="banner-full-link">
+        {{ button1 }}
+      </a>
+    {% endif %}
+    {% if button2_link != blank %}
+      <a href="{{ button2_link }}" class="banner-full-link">
+        {{ button2 }}
+      </a>
+    {% endif %}
+  {% endunless %}
+    <div class="position-{{ text_position }} caption js-caption">
+      <div class="caption-content caption-background-{{ caption_background }} caption-transparency-{{ caption_background_transparency }} align-{{ text_align }} display-{{wide_content}} font-{{font_color}}">
+        {% if profile_pic != blank %}
+        <img src="{{ profile_pic | img_url: 'x250' }}" class="profile_pic">
+        {% endif %}
+
+        {% if testimonial != blank %}
+          <div>
+            {{ testimonial }}
+          </div>
+        {% endif %}
+
+        {% if profile_byline  %}
+        <span class="profile_byline">{{profile_byline}}</span>
+        {% endif %}
+
+        {% if button1 != blank %}
+          <a {% if button1_link != blank %}href="{{ button1_link }}"{% endif %} class="action_button">
+            {{ button1 }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+</div>
+
+{% if wide_display == false %}
+  </div>
+</div>
+{% endif %}
+
+
+

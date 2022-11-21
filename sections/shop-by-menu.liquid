@@ -1,0 +1,36 @@
+ <div class="container">
+    <div class="sixteen columns">
+        <div class="industry_menu center">
+                <p class="title">Shop by Industry</p>
+
+            <ul class="margin-center">
+                {% for sublink in linklists[section.settings.industry_menu].links %}
+                    <li>
+                    <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Shop By Menu",
+    "class": "shop-by-row",
+    "settings": [
+    {
+        "type":"link_list",
+        "id": "industry_menu",
+        "label": "Menu"
+    }
+    ],
+    "presets": [{
+    "name": "Shop By Menu",
+    "category": "Content",
+    "settings": {
+    }
+  }]
+  }
+{% endschema %}

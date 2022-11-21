@@ -1,0 +1,33 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% capture product_template_content %}
+{% section 'product-template' %}
+{% endcapture %}
+
+{% capture valueprops %}{% section 'value-props-row' %}{% endcapture %}
+{% assign valueprops = valueprops | replace: 'class="shopify-section"', 'class="shopify-section-nested"'%}
+
+{% capture instagramrow %}{% section 'social-feeds' %}{% endcapture %}
+{% assign instagramrow = instagramrow | replace: 'class="shopify-section"', 'class="shopify-section-nested"' %}
+
+{% capture logos %}{% section 'logo-bar' %}{% endcapture %}
+{% assign logorow = logos  | replace: 'class="shopify-section"', 'class="shopify-section-nested"' %}
+
+{% capture imagewithtext %}{% section 'image-text-product' %}{% endcapture %}
+{% assign imagewithtext = imagewithtext | replace: 'class="shopify-section"', 'class="shopify-section-nested"' %}
+
+{% capture prdouctTestimonial %}{% section 'product-testimonial' %}{% endcapture %}
+{% assign imagewithtext = imagewithtext | replace: 'class="shopify-section"', 'class="shopify-section-nested"' %}
+
+
+
+{% assign product_template_content = product_template_content | replace: "%%VALUEPROPS%%", valueprops %}
+{% assign product_template_content = product_template_content | replace: "%%PRODUCTTESTIMONIAL%%", prdouctTestimonial %}
+{% assign product_template_content = product_template_content | replace: "%%LOGOROW%%", logorow %}
+{% assign product_template_content = product_template_content | replace: "%%INSTAGRAM%%", instagramrow %}
+{% assign product_template_content = product_template_content | replace: "%%IMAGEWITHTEXT%%", imagewithtext %}
+
+
+ {{ product_template_content }}

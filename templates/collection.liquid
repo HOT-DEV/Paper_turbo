@@ -1,0 +1,19 @@
+{% comment %}
+  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+{% endcomment %}
+
+{% capture topoverlay %}{% section 'collection-overlay-top' %}{% endcapture %}
+{% capture bottomoverlay %}{% section 'collection-image-text-bottom'  %}{% endcapture %}
+{% assign topoverlay = topoverlay | replace: 'class="shopify-section"', 'class="shopify-section-nested"' %}
+{% assign bottomoverlay = bottomoverlay | replace: 'class="shopify-section"', 'class="shopify-section-nested"' %}
+
+
+{% capture collection_template_content %}
+{% section 'collection-template' %}
+{% endcapture %}
+
+{% assign collection_template_content  = collection_template_content | replace: "%%TOPOVERLAY%%", topoverlay %}
+{% assign collection_template_content  = collection_template_content | replace: "%%BOTTOMOVERLAY%%", bottomoverlay %}
+
+
+{{ collection_template_content }}

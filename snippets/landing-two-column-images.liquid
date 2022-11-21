@@ -1,0 +1,189 @@
+<div class="two-column-images--container {% if section.settings.is_font_light != false %} light-font {% endif %}">
+
+  {% assign font_color = block.settings.font_color%}
+  {% assign wide_content = block.settings.wide_content %}
+  {% assign id = block.id %}
+  {% assign wide_display = block.settings.wide_display %}
+  {% assign image = block.settings.image %}
+  {% assign title = block.settings.title %}
+  {% assign subtitle_size = block.settings.subtitle_size %}
+  {% assign subtitle = block.settings.subtitle %}
+  {% assign caption_background = block.settings.caption_background %}
+  {% assign caption_background_transparency = block.settings.caption_background_transparency %}
+  {% assign text_position = block.settings.text_position %}
+  {% assign text_align = block.settings.text_align %}
+  {% assign button1 = block.settings.button1 %}
+  {% assign button1_link = block.settings.button1_link %}
+  {% assign button1_highlight = block.settings.button1_highlight %}
+  {% assign button2 = block.settings.button2 %}
+  {% assign button2_link = block.settings.button2_link %}
+  {% assign button2_highlight = block.settings.button2_highlight %}
+  {% assign phone_number = block.settings.phone_number %}
+  {% assign email = block.settings.email %}
+  {% assign subtitle_weight = block.settings.subtitle_weight %}
+  {% assign reviewTitle = block.settings.review_title %}
+  {% assign reviewDesc = block.settings.review_description %}
+  {% assign reviewName = block.settings.name %}
+  {% assign star = block.settings.star %}
+  
+  {% assign font_color1 = block.settings.font_colo1r%}
+  {% assign wide_content1 = block.settings.wide_content1 %}
+  {% assign id1 = block.id %}
+  {% assign wide_display1 = block.settings.wide_display1 %}
+  {% assign image1 = block.settings.image1 %}
+  {% assign title1 = block.settings.title1 %}
+  {% assign subtitle_size1 = block.settings.subtitle_size1 %}
+  {% assign subtitle1 = block.settings.subtitle1 %}
+  {% assign caption_background1 = block.settings.caption_background1 %}
+  {% assign caption_background_transparency1 = block.settings.caption_background_transparency1 %}
+  {% assign text_position1 = block.settings.text_position1 %}
+  {% assign text_align1 = block.settings.text_align1 %}
+  {% assign button1 = block.settings.button1 %}
+  {% assign button1_link = block.settings.button1_link %}
+  {% assign button1_highlight = block.settings.button1_highlight %}
+  {% assign button2 = block.settings.button2 %}
+  {% assign button2_link = block.settings.button2_link %}
+  {% assign button2_highlight = block.settings.button2_highlight %}
+  {% assign phone_number = block.settings.phone_number %}
+  {% assign email = block.settings.email %}
+  {% assign subtitle_weight1 = block.settings.subtitle_weight1 %}
+  {% assign reviewTitle1 = block.settings.review_title1 %}
+  {% assign reviewDesc1 = block.settings.review_description1 %}
+  {% assign reviewName1 = block.settings.name1 %}
+  {% assign star1 = block.settings.star1 %}
+  {% if text_position == "bottom-center" %}
+  <style>
+    @media (min-width: 426px) {
+      .logo-list-section {
+        padding-top: 250px;
+      }
+      .two-column-images--container .two-column-images--column .caption-content {
+        min-width: 400px !important;
+      }
+    }
+    @media (max-width: 426px) {
+      .two-column-images--container .two-column-images--column .caption-content {
+        padding: 50px 0 !important;
+      }
+    }
+  </style>
+  {% endif %}
+
+  <div class="two-column-images--column">
+    <img src="{{ block.settings.overlay_image | img_url: '960x', crop: 'center' }}">
+    <div class="position-{{ text_position }} caption js-caption">
+      <div class="caption-content caption-background-{{ caption_background }} caption-transparency-{{ caption_background_transparency }} align-{{ text_align }} display-{{wide_content}} font-{{font_color}}">
+        {% unless display_trustpilot %}
+
+        {% if title != blank %}
+        {% if heading_size == 'large' or heading_size == 'Large' %}
+        <h1 class="headline">
+          {{ title }}
+        </h1>
+        {% else %}
+        <h2 class="headline">
+          {{title}}
+        </h2>
+        {% endif %}
+        {% endif %}
+
+        {% if subtitle != blank %}
+        <div class="subtitle subtitle-{{subtitle_size}} subtitle-{{subtitle_weight}}">
+          {{ subtitle }}
+        </div>
+        {% endif %}
+
+        {% if reviewTitle != blank %}
+        <h4 class="review-title">
+          {{reviewTitle}}
+        </h4>
+        {% endif %}
+        <div class="review-star">
+          {% if star == 5 %}
+          <p>★★★★★</p>
+          {% elsif star == 4 %}
+          <p>★★★★</p>
+          {% elsif star == 3 %}
+          <p>★★★</p>
+          {% elsif star == 2 %}
+          <p>★★</p>
+          {% elsif star == 1 %}
+           <p>★</p>
+          {% endif %}
+        </div>
+        {% if reviewDesc != blank %}
+        <div class="review-subtitle">
+          {{ reviewDesc }}
+        </div>
+        {% endif %}
+        
+        {% if reviewName != blank %}
+        <h5 class="review-name">
+          {{ reviewName }}
+        </h5>
+        {% endif %}
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+  <div class="two-column-images--column">
+    <img src="{{ block.settings.overlay_image1 | img_url: '960x', crop: 'center' }}">
+    <div class="position-{{ text_position1 }} caption js-caption">
+      <div class="caption-content caption-background-{{ caption_background1 }} caption-transparency-{{ caption_background_transparency1 }} align-{{ text_align1 }} display-{{wide_content1}} font-{{font_color1}}">
+        {% unless display_trustpilot1 %}
+
+        {% if title1 != blank %}
+        {% if heading_size1 == 'large' or heading_size1 == 'Large' %}
+        <h1 class="headline">
+          {{ title1 }}
+        </h1>
+        {% else %}
+        <h2 class="headline">
+          {{title1}}
+        </h2>
+        {% endif %}
+        {% endif %}
+
+        {% if subtitle1 != blank %}
+        <div class="subtitle subtitle-{{subtitle_size1}} subtitle-{{subtitle_weight1}}">
+          {{ subtitle1 }}
+        </div>
+        {% endif %}
+
+        {% if reviewTitle1 != blank %}
+        <h4 class="review-title">
+          {{reviewTitle1}}
+        </h4>
+        {% endif %}
+        <div class="review-star">
+          {% if star1 == 5 %}
+          <p>★★★★★</p>
+          {% elsif star1 == 4 %}
+          <p>★★★★</p>
+          {% elsif star1 == 3 %}
+          <p>★★★</p>
+          {% elsif star1 == 2 %}
+          <p>★★</p>
+          {% elsif star1 == 1 %}
+           <p>★</p>
+          {% endif %}
+        </div>
+        {% if reviewDesc1 != blank %}
+        <div class="review-subtitle">
+          {{ reviewDesc1 }}
+        </div>
+        {% endif %}
+        
+        {% if reviewName1 != blank %}
+        <h5 class="review-name">
+          {{ reviewName1 }}
+        </h5>
+        {% endif %}
+        
+       
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+  
+</div>
