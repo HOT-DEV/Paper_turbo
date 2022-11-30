@@ -1,1 +1,1 @@
-Paper Store (Turbo)
+## Turbo theme into Shopify 2.0
